@@ -1,0 +1,10 @@
+C:\Projects\Volvo - VCE\SessionToken.API\SessionToken.API\bin\Debug\netcoreapp2.0\SessionToken.API.deps.json
+C:\Projects\Volvo - VCE\SessionToken.API\SessionToken.API\bin\Debug\netcoreapp2.0\SessionToken.API.runtimeconfig.json
+C:\Projects\Volvo - VCE\SessionToken.API\SessionToken.API\bin\Debug\netcoreapp2.0\SessionToken.API.runtimeconfig.dev.json
+C:\Projects\Volvo - VCE\SessionToken.API\SessionToken.API\bin\Debug\netcoreapp2.0\SessionToken.API.dll
+C:\Projects\Volvo - VCE\SessionToken.API\SessionToken.API\bin\Debug\netcoreapp2.0\SessionToken.API.pdb
+C:\Projects\Volvo - VCE\SessionToken.API\SessionToken.API\obj\Debug\netcoreapp2.0\SessionToken.API.csproj.CoreCompileInputs.cache
+C:\Projects\Volvo - VCE\SessionToken.API\SessionToken.API\obj\Debug\netcoreapp2.0\SessionToken.API.AssemblyInfoInputs.cache
+C:\Projects\Volvo - VCE\SessionToken.API\SessionToken.API\obj\Debug\netcoreapp2.0\SessionToken.API.AssemblyInfo.cs
+C:\Projects\Volvo - VCE\SessionToken.API\SessionToken.API\obj\Debug\netcoreapp2.0\SessionToken.API.dll
+C:\Projects\Volvo - VCE\SessionToken.API\SessionToken.API\obj\Debug\netcoreapp2.0\SessionToken.API.pdb

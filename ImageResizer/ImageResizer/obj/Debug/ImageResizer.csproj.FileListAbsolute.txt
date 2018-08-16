@@ -1,0 +1,10 @@
+C:\Projects\ImageResizer\ImageResizer\bin\Debug\ImageResizer.exe.config
+C:\Projects\ImageResizer\ImageResizer\bin\Debug\ImageResizer.exe
+C:\Projects\ImageResizer\ImageResizer\bin\Debug\ImageResizer.pdb
+C:\Projects\ImageResizer\ImageResizer\obj\Debug\ImageResizer.Form1.resources
+C:\Projects\ImageResizer\ImageResizer\obj\Debug\ImageResizer.Properties.Resources.resources
+C:\Projects\ImageResizer\ImageResizer\obj\Debug\ImageResizer.csproj.GenerateResource.Cache
+C:\Projects\ImageResizer\ImageResizer\obj\Debug\ImageResizer.exe
+C:\Projects\ImageResizer\ImageResizer\obj\Debug\ImageResizer.pdb
+C:\Projects\ImageResizer\ImageResizer\obj\Debug\ImageResizer.csproj.CoreCompileInputs.cache
+C:\Projects\ImageResizer\ImageResizer\obj\Debug\ImageResizer.csprojResolveAssemblyReference.cache
