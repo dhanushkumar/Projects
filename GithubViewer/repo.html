@@ -1,0 +1,16 @@
+<div>
+  Open Issues: {{ repo.open_issues_count }}</div>
+<div>
+  <div ng-repeat="contributor in repo.contributors">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{ contributor.avatar_url}}" alt="{{contributor.login}}" />
+      <div class="card-body">
+        <h5 class="card-title">{{ contributor.login }}</h5>
+        <p class="card-text">{{ contributor.subscriptions_url }}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="#!/main" class="badge badge-info"> Back to search</a>
+<a href="#!/user/{{repo.owner.login}}" class="badge badge-info"> Back to {{repo.owner.login}}</a>

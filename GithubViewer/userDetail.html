@@ -1,0 +1,35 @@
+<h2>{{user.name}}</h2>
+<div>{{user.company}}</div>
+<div>{{user.location}}</div>
+<div>{{user.bio}}</div>
+<div>{{user.blog}}</div>
+
+<img title="{{user.name}}" ng-src="{{user.avatar_url}}" />
+<br> 
+Filter by:
+<input type="search" ng-model="searchTerm"></input>
+Order by:
+<select ng-model="reposSortOrder">
+  <option value="+name">Name</option>
+  <option value="-stargazers_count">Stars</option>
+  <option value="+language">Language</option>
+</select>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Stars</th>
+      <th>Language</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr ng-repeat="repo in repos | filter:searchTerm | orderBy:reposSortOrder">
+        <td><a href="#/repo/{{repo.name}}">{{repo.name | uppercase}}</a></td>
+        <td>{{repo.stargazers_count}}</td>
+        <td>{{repo.language}}</td>
+      </tr>
+    </tbody>
+ 
+</table>

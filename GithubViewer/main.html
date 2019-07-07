@@ -1,0 +1,13 @@
+<div>
+  <div><dk-count-down method="search(username)"></dk-count-down></div>
+  <form class="bd-example" name="searchUser" ng-submit="search(username)">
+    <fieldset>
+      <p>
+        <label>username to find: </label>
+        <input class="form-control" type="search" required="" placehholder="Username to find" ng-model="username" />
+      </p>
+      <input class="btn btn-primary" type="submit" value="search" />
+    </fieldset>
+  </form>
+  <br/>
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="githubViewer">
+
+  <head>
+    <link data-require="bootstrap@*" data-semver="4.1.1" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js" data-require="angular.js@1.3.0-beta.5" data-semver="4.0.0"></script>
+    <script data-require="angular-route@*" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
+    <script src="script.ts" data-require="angular.js@*" data-semver="4.0.0"></script>
+    <script src="system.config.js" data-require="angular.js@*" data-semver="4.0.0"></script>
+    <script src="tsconfig.json" data-require="angular.js@*" data-semver="4.0.0"></script>
+    <script src="app.js"></script>
+    <script src="mainController.js"></script>
+    <script src="githubService.js"></script>
+    <script src="countdownDirective.js"></script>
+    <script src="timer.js"></script>
+    <script src="userController.js"></script>
+    <script src="repoController.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Github Viewer</h1>
+    <p class="lead">Github  viewer created using AngularJS.</p>
+     <div ng-view></div>
+  </div>
+</div>
+  </body>
+
+</html>
