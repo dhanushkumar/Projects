@@ -1,9 +1,0 @@
-C:\Projects\ImageResizer\ImageResizer\bin\Release\ImageResizer.exe.config
-C:\Projects\ImageResizer\ImageResizer\bin\Release\ImageResizer.exe
-C:\Projects\ImageResizer\ImageResizer\bin\Release\ImageResizer.pdb
-C:\Projects\ImageResizer\ImageResizer\obj\Release\ImageResizer.Form1.resources
-C:\Projects\ImageResizer\ImageResizer\obj\Release\ImageResizer.Properties.Resources.resources
-C:\Projects\ImageResizer\ImageResizer\obj\Release\ImageResizer.csproj.GenerateResource.Cache
-C:\Projects\ImageResizer\ImageResizer\obj\Release\ImageResizer.csproj.CoreCompileInputs.cache
-C:\Projects\ImageResizer\ImageResizer\obj\Release\ImageResizer.exe
-C:\Projects\ImageResizer\ImageResizer\obj\Release\ImageResizer.pdb
