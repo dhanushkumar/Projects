@@ -1,0 +1,37 @@
+<div class="card border-info mb-3" style="width: 18rem;" ng-repeat="user in users">
+  <div class="card-header"><h1></hi>{{user.name}}</h1></div>
+  <div class="card-body">
+    <div>
+      <h4>Address:</h4>
+      <div>Street: {{user.address.street}}</div>
+      <div>City: {{user.address.city}}</div>
+      <div>Country: {{user.address.country}}</div>
+    </div>
+    <div ng-show="user.friends">
+      <h4>Friends:</h4>
+      <div ng-repeat="friend in user.friends">
+        <ul>
+          <li>{{friend}}
+            <cfx-confirm-remove method="removeFriend(user,friend)"></cfx-confirm-remove>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div ng-show="!user.friends">
+      <div class="glyphicon glyphicon-add">gg</div>
+    </div>
+    <div class="card-footer bg-transparent border-success">
+      <div ng-show="!!user.rank">
+        Rank: {{user.rank}}
+      </div>
+      <div>
+        <button ng-show="!!!user.rank" class="btn btn-primary" ng-click="knightMe(user)">Like!</button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <cfx-confirm-remove method="removeUser(user)"></cfx-confirm-remove>
+  </div>
+
+</div>

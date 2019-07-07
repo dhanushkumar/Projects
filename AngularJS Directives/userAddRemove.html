@@ -1,0 +1,21 @@
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" required id="inputName" placeholder="Name" ng-model="name">
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control"  required id="inputAddress" placeholder="Street" ng-model="street">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" required id="inputCity" placeholder="City" ng-model="city">
+    </div>
+  <div class="form-group col-md-6">
+      <input type="text" class="form-control" required id="inputCountry" placeholder="Country" ng-model="country">
+    </div>
+  </div>
+  <div class="form-group">
+     <button type="submit" class="btn btn-success" ng-click="addUser()">Add</button>
+  </div>
+</form>
