@@ -42,12 +42,16 @@ namespace TicTac.Calculator
                 var name = new StringBuilder();
                 foreach (var number in rightDivisibilityNumbers)
                 {
-                    if (leftDivisionNumber % number.Value == 0)
+                   if (leftDivisionNumber % number.Value == 0)
                     {
-                        name.Append(number.Alias);
+                    
                         if (!rightDivisibilityNumbers.LastOrDefault().Equals(number))
+                         {
+                            name.AppendFormat("{0} ", number.Alias);
+                         }
+                        else
                         {
-                            name.Append(" ");
+                            name.AppendFormat(number.Alias);
                         }
                     }
                 }
