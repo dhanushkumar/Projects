@@ -31,9 +31,7 @@ namespace TicTac.Calculator
         {
             this.rightDivisibilityNumbers.Add(rightDivisibleNumber);
         }
-
-       
-
+        
         /// <summary>
         /// Executes the command
         /// </summary>
@@ -44,14 +42,13 @@ namespace TicTac.Calculator
                 {
                    if (leftDivisionNumber % number.Value == 0)
                     {
-                    
                         if (!rightDivisibilityNumbers.LastOrDefault().Equals(number))
                          {
                             name.AppendFormat("{0} ", number.Alias);
                          }
                         else
                         {
-                            name.AppendFormat(number.Alias);
+                            name.Append(number.Alias);
                         }
                     }
                 }
