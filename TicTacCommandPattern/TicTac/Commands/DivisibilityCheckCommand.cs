@@ -55,7 +55,6 @@ namespace TicTac.Calculator
             receiver.WriteToConsole(new Result { Value = leftDivisionNumber, Alias = name.ToString().ToUpperInvariant() });
         }
 
-      
         /// <summary>
         /// sets the left divisible number
         /// </summary>

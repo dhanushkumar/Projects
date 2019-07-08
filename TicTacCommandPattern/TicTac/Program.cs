@@ -7,13 +7,12 @@ namespace Calculator
     class Program
     {
         /// <summary>
-        /// 
+        /// Program to check divisibility
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
         {
   
-
             //RunMethodOne(); //uncomment to run this method
 
             //buid service provider
@@ -57,14 +56,14 @@ namespace Calculator
             var resultReceiver = new ResultReceiver();
             //result dependency is injected to the command. This will write out to the console once the command is executed
             var devisibilityCheckCommand = new DivisibilityCheckCommand(resultReceiver);
-            //input dependency is accepted by the command
+            //input dependency is(are) accepted by the command. 
             devisibilityCheckCommand.Accept(new RightInput { Value = 3, Alias = "tic" });
             devisibilityCheckCommand.Accept(new RightInput { Value = 5, Alias = "tac" });
             //sets the number of iterations
             service.Set(100);
             //inject command(s)
             service.Add(devisibilityCheckCommand);
-            //let the service invoke 
+            //let the service invoke the command
             service.Start();
             Console.ReadLine();
         }
