@@ -52,7 +52,7 @@ namespace TicTac.Calculator
                         }
                     }
                 }
-            receiver.WriteToConsole(new Result { Value = leftDivisionNumber, Alias = name.ToString().ToUpperInvariant() });
+            receiver.Process(new Result { Value = leftDivisionNumber, Alias = name.ToString().ToUpperInvariant() });
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace TicTacTest
         public  class MockReceiver : IReceiver
         {
             public Result OutResult = new Result();
-            public void WriteToConsole(INumber result)
+            public void Process(INumber result)
             {
                 OutResult = result as Result;
             }

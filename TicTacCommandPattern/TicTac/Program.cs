@@ -32,9 +32,9 @@ namespace Calculator
         private static void RunMethodOne()
         {
             
-            var resultReceiver = new ResultReceiver();
+            var receiver = new WriteToConsoleReceiver();
             //result dependency is injected to the command. This will write out to the console once the command is executed
-            var devisibilityCheckCommand = new DivisibilityCheckCommand(resultReceiver);
+            var devisibilityCheckCommand = new DivisibilityCheckCommand(receiver);
             //input dependency is accepted by the command
             devisibilityCheckCommand.Accept(new RightInput { Value = 3, Alias = "TIC" });
             devisibilityCheckCommand.Accept(new RightInput { Value = 5, Alias = "TAC" });
@@ -53,9 +53,9 @@ namespace Calculator
         /// </summary>
         private static void RunMethodTwo(ICalculatorService service)
         {
-            var resultReceiver = new ResultReceiver();
+            var receiver = new WriteToConsoleReceiver();
             //result dependency is injected to the command. This will write out to the console once the command is executed
-            var devisibilityCheckCommand = new DivisibilityCheckCommand(resultReceiver);
+            var devisibilityCheckCommand = new DivisibilityCheckCommand(receiver);
             //input dependency is(are) accepted by the command. 
             devisibilityCheckCommand.Accept(new RightInput { Value = 3, Alias = "tic" });
             devisibilityCheckCommand.Accept(new RightInput { Value = 5, Alias = "tac" });

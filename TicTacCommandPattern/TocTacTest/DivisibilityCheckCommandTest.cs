@@ -56,8 +56,8 @@ namespace TicTacTest
         { using (StringWriter sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                var testReciever = new ResultReceiver();
-                testReciever.WriteToConsole(new Result { Alias = "TIC", Value = 6 });
+                var testReciever = new WriteToConsoleReceiver();
+                testReciever.Process(new Result { Alias = "TIC", Value = 6 });
                 var testRecieverContent = sw.ToString();
                 Assert.AreEqual(string.Format("6 TIC{0}", Environment.NewLine),testRecieverContent);
             }
