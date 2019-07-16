@@ -81,6 +81,7 @@
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FibonacciSequenceTest.cs" />
     <Compile Include="DivisibilityCheckCommandTest.cs" />
     <Compile Include="MockObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

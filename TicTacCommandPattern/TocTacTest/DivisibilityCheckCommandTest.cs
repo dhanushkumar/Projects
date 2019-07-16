@@ -21,9 +21,9 @@ namespace TicTacTest
         {
             var resultReceiver = new MockObjects.MockReceiver();
             var devisibilityCheckCommand = new DivisibilityCheckCommand(resultReceiver);
-            devisibilityCheckCommand.Accept(new RightInput { Value = 3, Alias = "tic" });
-            devisibilityCheckCommand.Accept(new RightInput { Value = 5, Alias = "tac" });
-            devisibilityCheckCommand.Set(15);
+            devisibilityCheckCommand.Accept(new InputNumber { Value = 3, Alias = "tic" });
+            devisibilityCheckCommand.Accept(new InputNumber { Value = 5, Alias = "tac" });
+            devisibilityCheckCommand.CurrentIteration = 15;
             devisibilityCheckCommand.Execute();
             Assert.AreEqual("TIC TAC", resultReceiver.OutResult.Alias);
         }
@@ -33,8 +33,8 @@ namespace TicTacTest
         {
             var resultReceiver = new MockObjects.MockReceiver();
             var devisibilityCheckCommand = new DivisibilityCheckCommand(resultReceiver);
-            devisibilityCheckCommand.Accept(new RightInput { Value = 3, Alias = "tic" });
-            devisibilityCheckCommand.Set(15);
+            devisibilityCheckCommand.Accept(new InputNumber { Value = 3, Alias = "tic" });
+            devisibilityCheckCommand.CurrentIteration = 15;
             devisibilityCheckCommand.Execute();
             Assert.AreEqual("TIC", resultReceiver.OutResult.Alias);
          
@@ -45,8 +45,8 @@ namespace TicTacTest
         {
             var resultReceiver = new MockObjects.MockReceiver();
             var devisibilityCheckCommand = new DivisibilityCheckCommand(resultReceiver);
-            devisibilityCheckCommand.Accept(new RightInput { Value = 5, Alias = "tac" });
-            devisibilityCheckCommand.Set(5);
+            devisibilityCheckCommand.Accept(new InputNumber { Value = 5, Alias = "tac" });
+            devisibilityCheckCommand.CurrentIteration = 5;
             devisibilityCheckCommand.Execute();
             Assert.AreEqual("TAC", resultReceiver.OutResult.Alias);
           

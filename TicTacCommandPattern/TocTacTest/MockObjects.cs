@@ -13,7 +13,7 @@ namespace TicTacTest
     {
         public  class MockReceiver : IReceiver
         {
-            public Result OutResult = new Result();
+            public Result OutResult ;
             public void Process(INumber result)
             {
                 OutResult = result as Result;

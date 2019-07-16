@@ -5,22 +5,17 @@ namespace TicTac.Calculator
     public class CalculatorService : ICalculatorService
     {
         private readonly List<ICommand> commands = new List<ICommand>();
-        private  int iterations;
-        public void Start()
+
+        public void Run()
         {
            foreach(var command in commands)
             {
-                for (int i = 0; i < iterations; i++)
+                for (int i = 0; i < command.Iterations; i++)
                 {
-                    command.Set(i);
+                    command.CurrentIteration = i;
                     command.Execute();
                 }
             }
-        }
-
-        public void Set(int iterations)
-        {
-            this.iterations = iterations;
         }
 
         public void Add(ICommand command)

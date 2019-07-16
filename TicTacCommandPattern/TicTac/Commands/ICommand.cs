@@ -1,9 +1,8 @@
 ﻿
 namespace TicTac.Calculator
 {
-    public interface ICommand
+    public interface ICommand: IIterationJob
     {
-        void Set(int leftInput); 
         void Execute();
     }
 }

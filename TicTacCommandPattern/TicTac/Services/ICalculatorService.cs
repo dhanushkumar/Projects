@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace TicTac.Calculator
 {
-    public interface ICalculatorService: IIterationJob
+    public interface ICalculatorService
     {
-       void Start();
+       void Run();
        void Add(ICommand command);
        
     }

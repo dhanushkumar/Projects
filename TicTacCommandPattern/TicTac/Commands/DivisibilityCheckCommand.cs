@@ -7,61 +7,34 @@ using System.Text;
 namespace TicTac.Calculator
 {
     
-    public class DivisibilityCheckCommand : ICommand
+    public class DivisibilityCheckCommand: CommandBase
     {
-        private readonly List<INumber> rightDivisibilityNumbers = new List<INumber>();
-        private readonly IReceiver receiver;
-        private int leftDivisionNumber;
-
-        /// <summary>
-        /// This class determines if a given number is divisible against a list of numbers provided.
-        /// Prints out the Aliases of all the divisible numbers
-        /// </summary>
-        /// <param name="receiver">Used to print out result to the console</param>
-        public DivisibilityCheckCommand(IReceiver receiver)
+        public DivisibilityCheckCommand(IReceiver receiver) : base(receiver)
         {
-            this.receiver = receiver;
         }
-
-            /// <summary>
-            /// Accept number to check divisibility against. 
-            /// </summary>
-            /// <param name="rightDivisibleNumber">right divisible number and its Alias</param>
-            public void Accept(INumber rightDivisibleNumber)
-        {
-            this.rightDivisibilityNumbers.Add(rightDivisibleNumber);
-        }
-        
+       
         /// <summary>
         /// Executes the command
         /// </summary>
-        public void Execute()
+        public override void Execute()
         {
                 var name = new StringBuilder();
-                foreach (var number in rightDivisibilityNumbers)
+                foreach (var input in this.inputNumbers)
                 {
-                   if (leftDivisionNumber % number.Value == 0)
+                   if (currentIteration % input.Value == 0)
                     {
-                        if (!rightDivisibilityNumbers.LastOrDefault().Equals(number))
+                        if (!inputNumbers.LastOrDefault().Equals(input))
                          {
-                            name.AppendFormat("{0} ", number.Alias);
+                            name.AppendFormat("{0} ", input.Alias);
                          }
                         else
                         {
-                            name.Append(number.Alias);
+                            name.Append(input.Alias);
                         }
                     }
                 }
-            receiver.Process(new Result { Value = leftDivisionNumber, Alias = name.ToString().ToUpperInvariant() });
+            receiver.Process(new Result { Value = currentIteration, Alias = name.ToString().ToUpperInvariant() });
         }
 
-        /// <summary>
-        /// sets the left divisible number
-        /// </summary>
-        /// <param name="leftDivisionNumber"></param>
-        public void Set(int leftDivisionNumber)
-        {
-            this.leftDivisionNumber = leftDivisionNumber;
-        }
     }
 }
