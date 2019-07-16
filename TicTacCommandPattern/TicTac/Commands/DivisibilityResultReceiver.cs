@@ -4,7 +4,7 @@ namespace TicTac.Calculator
     /// <summary>
     /// Result receiver 
     /// </summary>
-    public class WriteToConsoleReceiver : IReceiver
+    public class DivisibilityResultReceiver : IReceiver
     {
             public void Process(INumber resultNumber)
             {

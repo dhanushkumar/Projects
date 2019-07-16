@@ -72,22 +72,19 @@
   <ItemGroup>
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\FibonacciSequenceCommand.cs" />
-    <Compile Include="Commands\DivisibilityCheckCommand - Copy.cs" />
     <Compile Include="Commands\DivisibilityCheckCommand.cs" />
     <Compile Include="Commands\IReceiver.cs" />
     <Compile Include="Commands\Result.cs" />
-    <Compile Include="Commands\LeftInput.cs" />
     <Compile Include="Commands\FibonacciSequenceResultReceiver.cs" />
-    <Compile Include="Commands\WriteToConsoleReceiver.cs" />
+    <Compile Include="Commands\DivisibilityResultReceiver.cs" />
     <Compile Include="Commands\INumber.cs" />
-    <Compile Include="Commands\RightInput.cs" />
+    <Compile Include="Commands\InputNumber.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CalculatorService.cs" />
     <Compile Include="Services\ICalculatorService.cs" />
-    <Compile Include="Services\IIterationJob.cs" />
-    <Compile Include="Services\IterationJob.cs" />
+    <Compile Include="Commands\IIterationJob.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

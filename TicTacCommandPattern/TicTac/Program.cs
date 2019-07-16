@@ -13,7 +13,7 @@ namespace Calculator
         static void Main(string[] args)
         {
   
-            RunMethodOne(); //uncomment to run this method
+           // RunMethodOne(); //uncomment to run this method
 
             //buid service provider
             var serviceProvider = new ServiceCollection()
@@ -21,7 +21,7 @@ namespace Calculator
             .BuildServiceProvider();
             var service = serviceProvider.GetService<ICalculatorService>();
             //inject service
-          // RunMethodTwo(service);
+            RunMethodTwo(service);
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Calculator
         private static void RunMethodOne()
         {
             
-            var receiver = new WriteToConsoleReceiver();
+            var receiver = new DivisibilityResultReceiver();
             //result dependency is injected to the command. This will write out to the console once the command is executed
             var devisibilityCheckCommand = new DivisibilityCheckCommand(receiver);
             //input dependency is accepted by the command
@@ -60,6 +60,18 @@ namespace Calculator
             service.Run();
             Console.ReadLine();
         }
+        private static ICommand GetDivisibilityCommand()
+        {
+            var receiver = new DivisibilityResultReceiver();
+            //result dependency is injected to the command. This will write out to the console once the command is executed
+            var devisibilityCheckCommand = new DivisibilityCheckCommand(receiver);
+            //input dependency is(are) accepted by the command. 
+            devisibilityCheckCommand.Accept(new InputNumber { Value = 3, Alias = "tic" });
+            devisibilityCheckCommand.Accept(new InputNumber { Value = 5, Alias = "tac" });
+            //set the number of iterations for this command
+            devisibilityCheckCommand.Set(100);
+            return devisibilityCheckCommand;
+        }
 
         private static ICommand GetFibonacciCommand()
         {
@@ -69,21 +81,8 @@ namespace Calculator
             fibonacciCommand.Accept(new InputNumber { Value = 1 });
             fibonacciCommand.Set(25);
             return fibonacciCommand;
-
         }
 
-        private static ICommand GetDivisibilityCommand()
-        {
-            var receiver = new WriteToConsoleReceiver();
-            //result dependency is injected to the command. This will write out to the console once the command is executed
-            var devisibilityCheckCommand = new DivisibilityCheckCommand(receiver);
-            //input dependency is(are) accepted by the command. 
-            devisibilityCheckCommand.Accept(new InputNumber { Value = 3, Alias = "tic" });
-            devisibilityCheckCommand.Accept(new InputNumber { Value = 5, Alias = "tac" });
-            //set the number of iterations for this command
-            devisibilityCheckCommand.Set(100);
-            return devisibilityCheckCommand;
-
-        }
+       
     }
 }

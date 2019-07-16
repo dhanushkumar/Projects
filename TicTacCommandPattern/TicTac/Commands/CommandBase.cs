@@ -1,8 +1,5 @@
 ﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 
 namespace TicTac.Calculator
 {
@@ -13,10 +10,15 @@ namespace TicTac.Calculator
         protected readonly IReceiver receiver;
         internal int currentIteration;
 
+        /// <summary>
+        /// Sets the number of iterations the command should be executed
+        /// </summary>
         public int Iterations { get; private set; }
+
+        /// <summary>
+        /// Determines the current iteration the command is being executed
+        /// </summary>
         public int CurrentIteration { private get => currentIteration; set => currentIteration = value; }
-
-
 
 
         ///// <summary>
