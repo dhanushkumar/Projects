@@ -7,7 +7,8 @@ namespace TicTac.Calculator
     public interface ICalculatorService
     {
        void Run();
-       void Add(ICommand command);
+       void AddCommand(ICommand command);
+       ICommand GetCommand<T>();
        
     }
 }

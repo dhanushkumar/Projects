@@ -4,7 +4,7 @@ namespace TicTac.Calculator
     /// <summary>
     /// Result receiver 
     /// </summary>
-    public class FibonacciSequenceResultReceiver : IReceiver
+    public class DefaultResultReceiver : IReceiver
     {
             public void Process(INumber resultNumber)
             {

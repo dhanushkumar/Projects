@@ -71,11 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\PrintEvenNumbersCommand.cs" />
     <Compile Include="Commands\FibonacciSequenceCommand.cs" />
     <Compile Include="Commands\DivisibilityCheckCommand.cs" />
     <Compile Include="Commands\IReceiver.cs" />
     <Compile Include="Commands\Result.cs" />
-    <Compile Include="Commands\FibonacciSequenceResultReceiver.cs" />
+    <Compile Include="Commands\DefaultResultReceiver.cs" />
     <Compile Include="Commands\DivisibilityResultReceiver.cs" />
     <Compile Include="Commands\INumber.cs" />
     <Compile Include="Commands\InputNumber.cs" />

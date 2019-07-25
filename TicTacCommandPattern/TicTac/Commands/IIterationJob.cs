@@ -3,7 +3,7 @@ namespace TicTac.Calculator
 {
     public interface IIterationJob
     {
-        void Set(int iterations);
+        void SetIterations(int iterations);
         int Iterations { get; }
         int CurrentIteration {  set; }
      

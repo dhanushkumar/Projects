@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TicTac.Calculator;
 
 namespace Calculator
@@ -12,16 +14,23 @@ namespace Calculator
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-  
-           // RunMethodOne(); //uncomment to run this method
+            //DI without IoC
+            //RunMethodOne(); //uncomment to run this method
 
-            //buid service provider
+            var service = new CalculatorService();
+            service.AddCommand(new DivisibilityCheckCommand(new DivisibilityResultReceiver()));
+            service.AddCommand(new FibonacciSequenceCommand(new DefaultResultReceiver()));
+            service.AddCommand(new PrintEvenNumbersCommand(new DefaultResultReceiver()));
+
             var serviceProvider = new ServiceCollection()
-            .AddSingleton<ICalculatorService, CalculatorService>()
+            .AddSingleton<ICalculatorService>(option => service)
             .BuildServiceProvider();
-            var service = serviceProvider.GetService<ICalculatorService>();
-            //inject service
-            RunMethodTwo(service);
+
+            //DI and access just the registered service. Commands are injected manually in the methods
+            //RunMethodTwo(serviceProvider.GetService<ICalculatorService>());
+
+            //run using inversion of control principle - Dependency injection. The service and commands are readily available for access
+            RunUsingInversionOfControl(serviceProvider);
         }
 
         /// <summary>
@@ -47,6 +56,25 @@ namespace Calculator
         }
 
         /// <summary>
+        /// Method 3 Using dependency injection and Inversion of Control principle
+        /// </summary>
+        private static void RunUsingInversionOfControl(ServiceProvider serviceCollection)
+        {
+            //access registered service(s) from DI IoC
+            var service = serviceCollection.GetService<ICalculatorService>();
+            //access registered command(s) from the servive
+            var command = service.GetCommand<DivisibilityCheckCommand>();
+            //plugin data for calculation to be performed
+            command.Accept(new InputNumber { Value = 3, Alias = "tic" });
+            command.Accept(new InputNumber { Value = 5, Alias = "tac" });
+            //set required iterations to be performed
+            command.SetIterations(100);
+            //let the service invoke command(s)
+            service.Run();
+            Console.ReadLine();
+        }
+
+        /// <summary>
         /// Method 2 Using dependency injection as a service
         /// </summary>
         private static void RunMethodTwo(ICalculatorService service)
@@ -54,12 +82,15 @@ namespace Calculator
             var devisibilityCommand = GetDivisibilityCommand();
             var fibonacciCommand = GetFibonacciCommand();
             //inject command(s)
-            service.Add(devisibilityCommand);
-            service.Add(fibonacciCommand);
+            service.AddCommand(devisibilityCommand);
+            service.AddCommand(fibonacciCommand);
             //let service invoke the command
             service.Run();
             Console.ReadLine();
         }
+
+      
+
         private static ICommand GetDivisibilityCommand()
         {
             var receiver = new DivisibilityResultReceiver();
@@ -69,17 +100,17 @@ namespace Calculator
             devisibilityCheckCommand.Accept(new InputNumber { Value = 3, Alias = "tic" });
             devisibilityCheckCommand.Accept(new InputNumber { Value = 5, Alias = "tac" });
             //set the number of iterations for this command
-            devisibilityCheckCommand.Set(100);
+            devisibilityCheckCommand.SetIterations(100);
             return devisibilityCheckCommand;
         }
 
         private static ICommand GetFibonacciCommand()
         {
-            var fibbonacciReceiver = new FibonacciSequenceResultReceiver();
+            var fibbonacciReceiver = new DefaultResultReceiver();
             var fibonacciCommand = new FibonacciSequenceCommand(fibbonacciReceiver);
             fibonacciCommand.Accept(new InputNumber { Value = 0 });
             fibonacciCommand.Accept(new InputNumber { Value = 1 });
-            fibonacciCommand.Set(25);
+            fibonacciCommand.SetIterations(25);
             return fibonacciCommand;
         }
 

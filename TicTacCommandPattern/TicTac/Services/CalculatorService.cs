@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 namespace TicTac.Calculator
 
 {
@@ -18,9 +19,14 @@ namespace TicTac.Calculator
             }
         }
 
-        public void Add(ICommand command)
+        public void AddCommand(ICommand command)
         {
             commands.Add(command);
+        }
+
+        public ICommand GetCommand<T>()
+        {
+            return commands.OfType<T>().SingleOrDefault() as ICommand;
         }
     }
 }

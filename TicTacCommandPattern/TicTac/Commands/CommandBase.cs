@@ -49,9 +49,10 @@ namespace TicTac.Calculator
         /// sets the number iterations to be performed for the command
         /// </summary>
         /// <param name="iterations"></param>
-        public void Set(int iterations)
+        public void SetIterations(int iterations)
         {
             this.Iterations = iterations;
         }
+
     }
 }
