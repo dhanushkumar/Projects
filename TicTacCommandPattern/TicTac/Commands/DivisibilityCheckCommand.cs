@@ -9,6 +9,11 @@ namespace TicTac.Calculator
     
     public class DivisibilityCheckCommand: CommandBase
     {
+        /// <summary>
+        /// This class determines if a given number is divisible against a list of numbers provided.
+        /// Prints out the Aliases of all the divisible numbers
+        /// </summary>
+        /// <param name="receiver"></param>
         public DivisibilityCheckCommand(IReceiver receiver) : base(receiver)
         {
         }

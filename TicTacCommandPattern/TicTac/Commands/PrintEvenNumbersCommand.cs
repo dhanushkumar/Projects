@@ -17,13 +17,11 @@ namespace TicTac.Calculator
         /// Executes the command
         /// </summary>
         public override void Execute()
-        {
-               
-                   if (currentIteration % 2 == 0)
-                    {
-                        receiver.Process(new Result { Value = currentIteration });
-                    }
-           
+        { 
+            if (currentIteration % 2 == 0)
+              {
+                receiver.Process(new Result { Value = currentIteration });
+              }
         }
 
     }

@@ -65,8 +65,10 @@ namespace Calculator
             //access registered command(s) from the servive
             var command = service.GetCommand<DivisibilityCheckCommand>();
             //plugin data for calculation to be performed
-            command.Accept(new InputNumber { Value = 3, Alias = "tic" });
-            command.Accept(new InputNumber { Value = 5, Alias = "tac" });
+            command.
+            Accept(new InputNumber { Value = 3, Alias = "tic" }).
+            Accept(new InputNumber { Value = 5, Alias = "tac" }).
+            Accept(new InputNumber { Value = 2, Alias = "toe" });
             //set required iterations to be performed
             command.SetIterations(100);
             //let the service invoke command(s)
@@ -88,8 +90,6 @@ namespace Calculator
             service.Run();
             Console.ReadLine();
         }
-
-      
 
         private static ICommand GetDivisibilityCommand()
         {

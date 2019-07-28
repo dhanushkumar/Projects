@@ -21,23 +21,25 @@ namespace TicTac.Calculator
         public int CurrentIteration { private get => currentIteration; set => currentIteration = value; }
 
 
-        ///// <summary>
-        ///// This class determines if a given number is divisible against a list of numbers provided.
-        ///// Prints out the Aliases of all the divisible numbers
-        ///// </summary>
-        ///// <param name="receiver">Used to print out result to the console</param>
+        /// <summary>
+        /// Base class for all conmmands. Actual algorithm should be implemented in the execute method 
+        /// in the inheriting class
+        ///</summary>
+        ///<param name="receiver">Used to print out result to the console</param>
         public CommandBase(IReceiver receiver)
         {
             this.receiver = receiver;
         }
 
         /// <summary>
-        /// Accept number to check divisibility against. 
+        /// Accept data to perform calculation based on inheriting command classe(s).
+        /// This method is an example of fluent interface implementation
         /// </summary>
         /// <param name="inputNumber">right divisible number and its Alias</param>
-        public void Accept(INumber inputNumber)
+        public ICommand Accept(INumber inputNumber)
         {
             this.inputNumbers.Add(inputNumber);
+            return this;
         }
 
         /// <summary>
@@ -53,6 +55,5 @@ namespace TicTac.Calculator
         {
             this.Iterations = iterations;
         }
-
     }
 }

@@ -26,6 +26,11 @@ namespace TicTac.Calculator
 
         public ICommand GetCommand<T>()
         {
+           
+            if (!typeof(ICommand).IsAssignableFrom(typeof(T)))
+            {
+                throw new System.NotImplementedException(string.Format("Type '{0}' does not implement ICommand. Type must be an implementation of the interface ICommand", typeof(T).Name));
+            }
             return commands.OfType<T>().SingleOrDefault() as ICommand;
         }
     }
