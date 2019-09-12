@@ -21,6 +21,7 @@ namespace Calculator
             service.AddCommand(new DivisibilityCheckCommand(new DivisibilityResultReceiver()));
             service.AddCommand(new FibonacciSequenceCommand(new DefaultResultReceiver()));
             service.AddCommand(new PrintEvenNumbersCommand(new DefaultResultReceiver()));
+            service.AddCommand(new LongestLineOfJuniorsCommand(new DivisibilityResultReceiver()));
 
             var serviceProvider = new ServiceCollection()
             .AddSingleton<ICalculatorService>(option => service)
@@ -28,6 +29,7 @@ namespace Calculator
 
             //DI and access just the registered service. Commands are injected manually in the methods
             //RunMethodTwo(serviceProvider.GetService<ICalculatorService>());
+            PersonsWithFullName(serviceProvider);
 
             //run using inversion of control principle - Dependency injection. The service and commands are readily available for access
             RunUsingInversionOfControl(serviceProvider);
@@ -71,6 +73,25 @@ namespace Calculator
             Accept(new InputNumber { Value = 2, Alias = "toe" });
             //set required iterations to be performed
             command.SetIterations(100);
+            //let the service invoke command(s)
+            service.Run();
+            Console.ReadLine();
+        }
+
+
+        /// <summary>
+        /// Method 3 Using dependency injection and Inversion of Control principle
+        /// </summary>
+        private static void PersonsWithFullName(ServiceProvider serviceCollection)
+        {
+            //access registered service(s) from DI IoC
+            var service = serviceCollection.GetService<ICalculatorService>();
+            //access registered command(s) from the servive
+            var command = service.GetCommand<LongestLineOfJuniorsCommand>();
+            //plugin data for calculation to be performed
+          
+            //set required iterations to be performed
+            command.SetIterations(1);
             //let the service invoke command(s)
             service.Run();
             Console.ReadLine();

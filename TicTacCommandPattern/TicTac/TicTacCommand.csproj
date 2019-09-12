@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\LongestLineOfJuniors.cs" />
     <Compile Include="Commands\PrintEvenNumbersCommand.cs" />
     <Compile Include="Commands\FibonacciSequenceCommand.cs" />
     <Compile Include="Commands\DivisibilityCheckCommand.cs" />

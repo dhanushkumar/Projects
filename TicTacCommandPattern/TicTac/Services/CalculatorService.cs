@@ -19,11 +19,20 @@ namespace TicTac.Calculator
             }
         }
 
+        /// <summary>
+        /// Add the command to the list
+        /// </summary>
+        /// <param name="command"></param>
         public void AddCommand(ICommand command)
         {
             commands.Add(command);
         }
 
+        /// <summary>
+        /// Returns the command implemntation for the specifc type 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns>ICommand</returns>
         public ICommand GetCommand<T>()
         {
            
