@@ -1,0 +1,3 @@
+<apex:page standardController="Account">
+<apex:iframe src="https://modeanalytics.com/rootsrated/reports/1a0663685eaa/embed?run=now&param_client={!Account.Partner_Token__c}&param_date_start={!Account.Plan_Start_Date__c}&param_date_end={!Account.Plan_Renewal_Date__c}" scrolling="true" frameborder="0" />
+</apex:page>

@@ -1,0 +1,50 @@
+global class LeadConversionHandler implements Database.Batchable<sObject>{
+    
+      List<Lead> leads = new List<Lead>();
+    
+    global LeadConversionHandler(List<Lead> l)
+    {
+        leads = getConvertibleLeads(l);
+     
+    }
+        
+  
+    global List<Lead> start(Database.BatchableContext context)
+    {
+        return leads;
+    }
+    
+     global void execute(Database.BatchableContext context, List<Lead> leads)
+    {        
+        List<Database.LeadConvert> leadConverts = new List<Database.LeadConvert>();
+        for(Lead lead: leads)
+        {
+          	Database.LeadConvert leadConvert = new database.LeadConvert();
+            leadConvert.setLeadId(lead.id);
+            leadConvert.ConvertedStatus = 'Closed - Converted';
+            leadConverts.Add(leadConvert);
+        }
+      
+        List<Database.LeadConvertResult> result = Database.convertLead(leadConverts,false);
+             
+    }
+    global void Finish(Database.BatchableContext contect)
+    {
+        
+    }
+    
+    public static List<Lead> getConvertibleLeads(List<Lead> leads)
+    {
+        List<Lead> convertibleLeads = new List<Lead>();
+        for (Lead lead: leads)
+        {
+            if(!lead.IsConverted  && lead.Self_Converted__c)
+        	{
+             convertibleLeads.add(lead);
+        	}
+        
+        }
+        return convertibleLeads;
+    }
+
+}

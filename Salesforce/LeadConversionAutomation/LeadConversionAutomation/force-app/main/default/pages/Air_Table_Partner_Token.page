@@ -1,0 +1,3 @@
+<apex:page standardController="Account">
+<apex:iframe src="https://airtable.com/embed/{!Account.AirTable_URL__c}?backgroundColor=cyan&viewControls=on" frameborder="0" width="100%" height="533" html-style="background: transparent; border: 1px solid #ccc;"/>
+</apex:page>

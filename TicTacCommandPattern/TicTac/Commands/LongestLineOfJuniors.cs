@@ -45,6 +45,11 @@ namespace TicTac.Calculator
                 new { FirstName= "Jenny", LastName= "Smith", Age= 12}
             };
 
+            /*// using dynamics. Not recommended as it is hard to trouble shoot/ debug
+            var persons = GetPersons();
+            var familyName = GetFamilyName(persons); */
+
+            //var persons = GetPersons() as IEnumerable<dynamic>;
             var longestLineOfJuniors = (from person in persons
                                         group person by new { person.FirstName, person.LastName } into family
                                         select new
@@ -54,9 +59,39 @@ namespace TicTac.Calculator
                                         }).OrderByDescending(c => c.Count)
                                       .FirstOrDefault();
 
-            receiver.Process(new Result { Value = longestLineOfJuniors.Count,
-                Alias = string.Format("- Family with longest line of juniors is Mr. \"{0}\"", longestLineOfJuniors.Family.LastName.ToUpperInvariant()) });
+            receiver.Process(new Result
+            {
+                Value = longestLineOfJuniors.Count,
+                Alias = string.Format("- Family with longest line of juniors is Mr. \"{0}\"", longestLineOfJuniors.Family.LastName.ToUpperInvariant())
+            });
 
+        }
+
+        private dynamic GetPersons()
+        {
+           return new[]
+            {
+                new {FirstName= "John",  LastName= "Doe",   Age= 32 },
+                new { FirstName= "John",  LastName= "Doe",   Age= 62 },
+                new {FirstName= "Janet", LastName= "Doe",   Age= 14 },
+                new { FirstName= "Jenny", LastName= "Smith", Age= 34 },
+                new { FirstName= "Jenny", LastName= "Smith", Age= 12}
+            };
+
+        }
+
+
+        public string GetFamilyName(IEnumerable<dynamic> persons)
+        {
+            var longestLineOfJuniors = (from person in persons
+                                        group person by new { person.FirstName, person.LastName } into family
+                                        select new
+                                        {
+                                            Family = family.Key,
+                                            Count = family.Count(),
+                                        }).OrderByDescending(c => c.Count)
+                                     .FirstOrDefault();
+            return longestLineOfJuniors.Family.LastName.ToUpperInvariant();
         }
 
     }

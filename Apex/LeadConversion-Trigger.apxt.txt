@@ -1,0 +1,26 @@
+trigger LeadConversion on Lead (after insert, after update) {
+    
+	for(Lead lead: Trigger.New)
+    {
+ 		System.debug('Is converted:'+lead.IsConverted);
+        if(!lead.IsConverted  && lead.Self_Converted__c)
+        {
+            System.debug('Is self converted:'+lead.Self_Converted__c);
+            Database.LeadConvert leadConvert = new database.LeadConvert();
+            System.debug('Lead ID before convert:' + lead.id);
+            leadConvert.setLeadId(lead.id);
+           
+             System.debug('Account ID before convert:' + leadConvert.getAccountId());
+             System.debug('Contact ID  before convert:' + leadConvert.getContactId());
+            leadConvert.ConvertedStatus = 'Closed - Converted';
+            Database.LeadConvertResult result = Database.convertLead(leadConvert); 
+             System.debug('Account ID :' + result.getAccountId());
+             System.debug('Contact ID after convert:' + result.getContactId());
+             System.debug('Lead ID after convert:' + result.getLeadId());
+            //Leadconvert.setDoNotCreateOpportunity(TRUE); 
+            System.debug('Is converted:'+ result.isSuccess());
+            //System.assert(lcr.isSuccess());
+        }
+    }
+   
+}
