@@ -41,7 +41,7 @@ global class LeadConversionHandler implements Database.Batchable<sObject>{
              convertibleLeads.add(lead);
         	}
         }
-        return convertibleLeads;
+        return convertibleLeads; //yes
     }
 
 }
